@@ -354,7 +354,7 @@ L.LatLngGraticule = L.Layer.extend({
             var ll, latstr, lngstr, _lon_delta = 0.5;
             function __draw_lat_line(self, lat_tick) {
                 ll = map.latLngToContainerPoint(L.latLng(lat_tick, _lon_l));
-                latstr = self.__format_lat(lat_tick);
+                latstr = self.__format_lat(parseFloat(lat_tick.toFixed(3)));
                 txtWidth = ctx.measureText(latstr).width;
 
                 if (curvedLat) {
@@ -440,7 +440,7 @@ L.LatLngGraticule = L.Layer.extend({
             }
 
             function __draw_lon_line(self, lon_tick) {
-                lngstr = self.__format_lng(lon_tick);
+                lngstr = self.__format_lng(parseFloat(lon_tick.toFixed(3)));
                 txtWidth = ctx.measureText(lngstr).width;
                 var bb = map.latLngToContainerPoint(L.latLng(_lat_b, lon_tick));
 
